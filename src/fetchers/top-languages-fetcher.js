@@ -12,7 +12,7 @@ const fetcher = (variables, token) => {
           repositories(ownerAffiliations: OWNER, isFork: false, first: 100) {
             nodes {
               name
-              languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+              languages(first: 15, orderBy: {field: SIZE, direction: DESC}) {
                 edges {
                   size
                   node {
@@ -34,7 +34,7 @@ const fetcher = (variables, token) => {
   );
 };
 
-async function fetchTopLanguages(username, langsCount = 5, exclude_repo = []) {
+async function fetchTopLanguages(username, langsCount = 15, exclude_repo = []) {
   if (!username) throw Error("Invalid username");
 
   langsCount = clampValue(parseInt(langsCount), 1, 10);
