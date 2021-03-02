@@ -37,7 +37,7 @@ const fetcher = (variables, token) => {
 async function fetchTopLanguages(username, langsCount = 15, exclude_repo = []) {
   if (!username) throw Error("Invalid username");
 
-  langsCount = clampValue(parseInt(langsCount), 1, 10);
+  langsCount = clampValue(parseInt(langsCount), 1, 15);
 
   const res = await retryer(fetcher, { login: username });
 
